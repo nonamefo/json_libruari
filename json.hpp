@@ -12,6 +12,8 @@ class json{
         void Parse(std::string f_name);
         std::vector<std::string> get_keys();
         bool f_status;
+        std::string operator[](std::string index);
+        
     private:
         std::vector<std::string> array_keys;
         std::map<std::string, std::string> id_crypto_dict;
@@ -169,4 +171,8 @@ void json::Parse(std::string f_name){
 
 std::vector<std::string> json::get_keys(){
     return this->array_keys;
+}
+
+std::string json::operator[](std::string index){
+    return id_crypto_dict[index];
 }
